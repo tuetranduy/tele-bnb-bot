@@ -5,7 +5,8 @@
   "main": "dist/bot.js",
   "type": "module",
   "scripts": {
-    "start": "nodemon",
+    "dev": "nodemon",
+    "start": "tsc && node --experimental-specifier-resolution=node dist/bot.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "tuetran",
