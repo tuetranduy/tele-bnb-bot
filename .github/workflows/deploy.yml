@@ -24,6 +24,6 @@ jobs:
       - name: install dependencies
         run: ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "cd tele-bnb-bot && npm ci && exit"
       - name: setting environment variables
-        run: ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "cd tele-bnb-bot && touch .env && echo BINANCE_API_KEY=${{ secrets.BINANCE_API_KEY }} >> .env && export BINANCE_API_SECRET=${{ secrets.BINANCE_API_SECRET }} >> .env && export TELEGRAM_BOT_API_KEY=${{ secrets.TELEGRAM_BOT_API_KEY }} >> .env && exit"
+        run: ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "cd tele-bnb-bot && touch .env && echo BINANCE_API_KEY=${{ secrets.BINANCE_API_KEY }} >> .env && echo BINANCE_API_SECRET=${{ secrets.BINANCE_API_SECRET }} >> .env && echo TELEGRAM_BOT_API_KEY=${{ secrets.TELEGRAM_BOT_API_KEY }} >> .env && exit"
       - name: start bot
         run: ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "cd tele-bnb-bot && pm2 start npm --name "tele_bnb_bot" -- start && exit"
