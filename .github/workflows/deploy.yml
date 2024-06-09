@@ -22,4 +22,4 @@ jobs:
       - name: install pm2
         run: ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "npm install pm2@latest -g && exit"
       - name: start bot
-        run: ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "npm start && exit"
+        run: ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "cd tele-bnb-bot && pm2 start npm --name "tele_bnb_bot" -- start && exit"
