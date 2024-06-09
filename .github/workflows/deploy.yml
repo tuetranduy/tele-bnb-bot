@@ -7,8 +7,8 @@ on:
   workflow_dispatch:
 
 jobs:
-  run_pull:
-    name: run pull
+  deploy:
+    name: Deploy Telegram BnB Bot
     runs-on: ubuntu-latest
 
     steps:
