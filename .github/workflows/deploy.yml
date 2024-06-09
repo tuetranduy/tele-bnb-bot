@@ -21,5 +21,5 @@ jobs:
         run: ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "cd tele-bnb-bot && git checkout ${{ secrets.MAIN_BRANCH }} && git pull && exit"
       - name: install pm2
         run: ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "npm install pm2@latest -g && exit"
-      - name: install pm2
+      - name: start bot
         run: ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "npm start && exit"
