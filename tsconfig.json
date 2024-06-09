@@ -1,0 +1,30 @@
+{
+    "compilerOptions": {
+        "target": "ES2022",
+        "moduleResolution": "node",
+        "sourceMap": true,
+        "resolveJsonModule": true,
+        "forceConsistentCasingInFileNames": true,
+        "outDir": "dist",
+        "module": "ES2022",
+        "baseUrl": ".",
+    },
+    "include": [
+        "*.ts",
+        "src/**/*.ts"
+    ],
+    "lib": [
+        "es2015"
+    ],
+    "paths": {
+        "@binance-api-controllers/*": [
+            "./src/binance-api-controllers/*"
+        ],
+        "@bot-controllers/*": [
+            "./src/bot-controllers/*"
+        ],
+        "@utils/*": [
+            "./src/utils/*"
+        ],
+    }
+}
