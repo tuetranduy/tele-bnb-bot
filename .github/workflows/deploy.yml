@@ -23,5 +23,7 @@ jobs:
         run: ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "npm install pm2@latest -g && exit"
       - name: install dependencies
         run: ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "cd tele-bnb-bot && npm ci && exit"
+      - name: setting environment variables
+        run: ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "export BINANCE_API_KEY=${{ secrets.BINANCE_API_KEY }} && export BINANCE_API_SECRET=${{ secrets.BINANCE_API_SECRET }} && export TELEGRAM_BOT_API_KEY=${{ secrets.TELEGRAM_BOT_API_KEY }}"
       - name: start bot
         run: ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "cd tele-bnb-bot && pm2 start npm --name "tele_bnb_bot" -- start && exit"
