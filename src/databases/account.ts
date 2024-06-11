@@ -7,4 +7,8 @@ export class AccountCommand {
     async add(account: Account) {
         return await prisma.account.create({ data: account })
     }
+
+    async getAll() {
+        return await prisma.account.findMany();
+    }
 }

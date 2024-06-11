@@ -17,7 +17,7 @@ export function build(bot: Telegraf, binanceApi: BinanceAPI) {
         await ctx.answerCbQuery()
 
         const data = await binanceApi.getSpotBalance();
-        return await ctx.reply(`Spot Balance: ${data.toString()} USDT`)
+        return await ctx.reply(`Spot Balance: ${data.toFixed(2)} USDT`)
     });
 
     bot.action('Margin', async (ctx) => {
@@ -30,7 +30,7 @@ export function build(bot: Telegraf, binanceApi: BinanceAPI) {
 
         return await ctx.replyWithHTML(`
             <strong>Margin Account Info</strong>
-            <i>Margin Balance: <b>${marginEquity.toString()}</b> USDT</i>
+            <i>Margin Equity: <b>${marginEquity.toString()}</b> USDT</i>
             <i>Borrowed/Debt: <b>${borrowedAmount.toString()}</b> USDT</i>
             <i>Margin Balance: <b>${marginBalance.toString()}</b> USDT</i>
             <i>Margin Level: <b>${marginLevel.toString()}</b></i>
