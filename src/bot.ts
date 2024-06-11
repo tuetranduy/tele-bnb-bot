@@ -25,18 +25,18 @@ const stage = new Stage([accountWizard]);
 bot.start(async (ctx) => {
     await bot.telegram.setMyCommands([
         {
-            command: '/balance',
+            command: Constants.CMD_BALANCE,
             description: 'get balance',
         },
         {
-            command: '/account',
+            command: Constants.CMD_ACCOUNT,
             description: 'account management',
         }
     ]);
 
     return await ctx.reply('Please choose command', Markup
         .keyboard([
-            [Constants.CMD_BALANCE]
+            [Constants.CMD_BALANCE, Constants.CMD_ACCOUNT]
         ])
         .persistent(false)
         .oneTime()
