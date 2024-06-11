@@ -25,15 +25,13 @@ jobs:
         run: ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "cd tele-bnb-bot && npm ci && exit"
       - name: setting environment variables
         run: |
-          ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} 
-          "cd tele-bnb-bot 
-          && rm -rf .env 
-          && touch .env 
-          && echo BINANCE_API_KEY=${{ secrets.BINANCE_API_KEY }} >> .env 
-          && echo BINANCE_API_SECRET=${{ secrets.BINANCE_API_SECRET }} >> .env 
-          && echo TELEGRAM_BOT_API_KEY=${{ secrets.TELEGRAM_BOT_API_KEY }} >> .env 
-          && echo DATABASE_URL=${{ secrets.DATABASE_URL }} >> .env 
-          && exit"
+          ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} \
+            "cd tele-bnb-bot && rm -rf .env && touch .env \
+            && echo BINANCE_API_KEY=${{ secrets.BINANCE_API_KEY }} >> .env \
+            && echo BINANCE_API_SECRET=${{ secrets.BINANCE_API_SECRET }} >> .env \
+            && echo TELEGRAM_BOT_API_KEY=${{ secrets.TELEGRAM_BOT_API_KEY }} >> .env \
+            && echo DATABASE_URL=${{ secrets.DATABASE_URL }} >> .env \
+            && exit"
       - name: database migration
         run: ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "cd tele-bnb-bot && npm run db:push && exit"
       - name: stopping bot
